@@ -1,0 +1,27 @@
+
+{% extends "app/base.html" %}
+
+{% block title %}
+Jobfinder | Register
+{% endblock title %}
+
+
+{% block content %}
+  
+
+    <h1 class="text-center alert alert-warning mr-5">Register a new account</h1>
+    <form method="post">
+        {% csrf_token %}
+        <input type="text" name="username" placeholder="Username" class="form-control"><br>
+        <input type="password" name="password1" placeholder="Password" class="form-control"><br>
+        <input type="password" name="password2" placeholder="Confirm Password" class="form-control"><br>
+        <button type="submit" class="btn btn-success">Register</button>
+    </form>
+    
+    {% if messages %}
+    {% for message in messages %}
+    <small {% if message.tags %} class="{{message.tags}}" {% endif %}>{{message}}</small>  
+    {% endfor %}
+    
+  {% endif %}
+    {% endblock content %}

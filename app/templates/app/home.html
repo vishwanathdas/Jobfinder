@@ -1,0 +1,54 @@
+{% extends "app/base.html" %}
+{% block content %}
+{% block title %}
+{% endblock title %}
+
+<!-- hero section -->
+<div class="container-fluid px-4 py-5 my-3 text-center">
+    <div class="lc-block mb-4">
+        <div editable="rich">
+            <h4 class="display-3 fw-bold">Quick Search Jobs <span class="text-primary">Our Website</span></h4>
+        </div>
+    </div>
+    <div class="lc-block col-lg-6 mx-auto mb-5">
+        <div editable="rich">
+
+            <p class="lead">Quickly design and customize responsive mobile-first sites with Bootstrap</p>
+        </div>
+    </div>
+
+    <div class="lc-block d-grid gap-2 d-sm-flex justify-content-sm-center mb-5"> <a class="btn btn-primary btn-lg px-4 gap-3" href="#" role="button">Try it free</a>
+        <a class="btn btn-outline-secondary btn-lg px-4" href="#" role="button">Learn more</a>
+    </div>
+    <div class="lc-block d-grid gap-2 d-sm-flex justify-content-sm-center">
+        <img class="img-fluid" src="https://lclibrary.b-cdn.net/starters/wp-content/uploads/sites/15/2021/10/undraw_going_up_ttm5.svg" width="" height="783" srcset="" sizes="" alt="">
+    </div>
+</div>
+
+
+    <!-- List of Jobs Section -->
+    <section class="jobs">
+        <div class="container">
+            <h1 class="text-center alert alert-warning">List of Jobs</h1>
+            <div class="row">
+                
+                {% for st in stu %}
+                
+                <div class="card mb-5 ml-5 mt-5" style="width: 18rem;">
+                    <div class="card-body">
+                      <h5 class="card-title">{{st.title}}</h5>
+                      <h6 class="card-subtitle mb-2 text-body-secondary">{{st.description}}</h6>
+                      <p class="card-text">{{st.job_type}}</p>
+                      <p class="card-text">{{st.location}}</p>
+                      <p class="card-text">{{st.posted_by}}</p>
+                      <a href="{% url 'jobs' st.id %}" class="card-link">Apply Now</a>
+                      <a href="#" class="card-link">View</a>
+                    </div>
+                  </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+    </section>
+
+    {% endblock content %}
